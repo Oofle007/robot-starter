@@ -12,7 +12,7 @@ BINDIR=$(ROOT)/bin
 SRCDIR=$(ROOT)/src
 INCDIR=$(ROOT)/include
 
-WARNFLAGS+=-Wall -Wextra
+WARNFLAGS+=
 EXTRA_CFLAGS=
 EXTRA_CXXFLAGS=
 
@@ -25,7 +25,8 @@ EXCLUDE_COLD_LIBRARIES:=
 
 # Set this to 1 to add additional rules to compile your project as a PROS library template
 IS_LIBRARY:=0
-LIBNAME:=robot-starter
+# TODO: CHANGE THIS!
+LIBNAME:=libbest
 VERSION:=1.0.0
 # EXCLUDE_SRC_FROM_LIB= $(SRCDIR)/unpublishedfile.c
 # this line excludes opcontrol.c and similar files
@@ -43,12 +44,9 @@ TEMPLATE_FILES=$(INCDIR)/**/*.h $(INCDIR)/**/*.hpp
 ########## Nothing below this line should be edited by typical users ###########
 -include ./common.mk
 
-# Host tests exercise the button logic without a V5 brain or ARM emulator.
 HOST_CXX?=c++
 .PHONY: test
 test:
 	@mkdir -p .test-bin
-	$(HOST_CXX) -std=c++17 -Wall -Wextra -pedantic -Iinclude tests/toggle_test.cpp -o .test-bin/toggle_test
-	@.test-bin/toggle_test
-	$(HOST_CXX) -std=c++17 -Wall -Wextra -pedantic -Itests/fakes -Iinclude tests/tasks_test.cpp src/utilities.cpp src/motor_subsystem.cpp -o .test-bin/tasks_test
-	@.test-bin/tasks_test
+	$(HOST_CXX) -std=c++17 -Wall -Wextra -pedantic -Itests/fakes -Iinclude tests/functions_test.cpp src/functions.cpp src/utilities.cpp -o .test-bin/functions_test
+	@.test-bin/functions_test

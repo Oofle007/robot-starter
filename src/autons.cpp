@@ -1,30 +1,49 @@
-#include "robot/autons.hpp"
-#include "robot/robot.hpp"
+//      _              _
+//     / \     _   _  | |_    ___    _ __    ___
+//    / _ \   | | | | | __|  / _ \  | '_ \  / __|
+//   / ___ \  | |_| | | |_  | (_) | | | | | \__ \
+//  /_/   \_\  \__,_|  \__|  \___/  |_| |_| |___/
 
-namespace {
-void routine1() {
-    // Set the starting pose, then add this team's moves here.
-    // robot.chassis.setPose(0, 0, 0);
-    // robot.chassis.moveToPoint(0, 24, 2000);
-    // robot.chassis.waitUntilDone(); // wait before the next mechanism action
+#include <utility>
+#include "../include/hteam/autons.h"
+
+Autons::Autons(std::shared_ptr<Robot> robot) : robot(std::move(robot)) {
+
 }
 
-void skills() {
-}
-} // namespace
 
-const char* autonName(Auton routine) {
-    switch (routine) {
-        case Auton::routine1: return "Routine 1";
-        case Auton::skills: return "Skills";
-        default: return "None";
-    }
+void Autons::red1() {
+    // Add this team's routine here.
 }
 
-void runAutonomous(Auton routine) {
-    switch (routine) {
-        case Auton::routine1: routine1(); break;
-        case Auton::skills: skills(); break;
-        case Auton::none: break;
-    }
+void Autons::red2() {
+    // Add this team's routine here.
+}
+
+void Autons::red3() {
+    // Add this team's routine here.
+}
+
+void Autons::red4() {
+    // Add this team's routine here.
+}
+
+void Autons::blue1() {
+    // Add this team's routine here.
+}
+
+void Autons::blue2() {
+    // Add this team's routine here.
+}
+
+void Autons::blue3() {
+    // Add this team's routine here.
+}
+
+void Autons::blue4() {
+    // Add this team's routine here.
+}
+
+void Autons::skills() {
+    // Add this team's routine here.
 }
